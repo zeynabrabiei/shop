@@ -27,7 +27,7 @@ export function SearchBox({ className, onSubmitted }: SearchBoxProps) {
   return (
     <form role="search" onSubmit={handleSubmit} className={cn("relative", className)}>
       <Search
-        className="pointer-events-none absolute start-3 top-1/2 size-[18px] -translate-y-1/2 text-muted"
+        className="pointer-events-none absolute inset-s-3 top-1/2 size-4.5 -translate-y-1/2 text-muted"
         aria-hidden="true"
       />
       <input
@@ -45,7 +45,7 @@ export function SearchBox({ className, onSubmitted }: SearchBoxProps) {
           type="button"
           onClick={() => setValue("")}
           aria-label="پاک کردن جستجو"
-          className="absolute end-1.5 top-1/2 inline-flex size-8 -translate-y-1/2 items-center justify-center rounded-lg text-muted transition-colors hover:bg-surface-muted hover:text-foreground"
+          className="absolute inset-e-1.5 top-1/2 inline-flex size-8 -translate-y-1/2 items-center justify-center rounded-lg text-muted transition-colors hover:bg-surface-muted hover:text-foreground"
         >
           <X className="size-4" aria-hidden="true" />
         </button>

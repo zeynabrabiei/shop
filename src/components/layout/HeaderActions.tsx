@@ -21,12 +21,12 @@ function HeaderIconLink({ href, label, icon: Icon, count }: HeaderIconLinkProps)
       aria-label={count > 0 ? `${label}، ${formatCount(count)} مورد` : label}
       className="relative inline-flex size-11 items-center justify-center rounded-xl text-foreground/80 transition-colors hover:bg-surface-muted hover:text-foreground"
     >
-      <Icon className="size-[22px]" aria-hidden="true" />
+      <Icon className="size-5.5" aria-hidden="true" />
       {count > 0 ? (
         <span
           key={count}
           aria-hidden="true"
-          className="badge-pop absolute end-1 top-1 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-accent px-1 text-[11px] leading-none font-bold text-foreground"
+          className="badge-pop absolute inset-e-1 top-1 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-accent px-1 text-[11px] leading-none font-bold text-foreground"
         >
           {count > 99 ? "+۹۹" : formatCount(count)}
         </span>

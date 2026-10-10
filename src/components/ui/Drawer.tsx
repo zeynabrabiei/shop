@@ -42,7 +42,7 @@ export function Drawer({ open, onClose, title, children, className }: DrawerProp
       onClose={onClose}
       onClick={handleDialogClick}
       className={cn(
-        "drawer fixed inset-y-0 start-0 end-auto m-0 h-dvh max-h-none w-[min(22rem,88vw)] max-w-none bg-background p-0 text-foreground shadow-lift backdrop:bg-foreground/40",
+        "drawer fixed inset-y-0 inset-s-0-0 inset-e-auto m-0 h-dvh max-h-none w-[min(22rem,88vw)] max-w-none bg-background p-0 text-foreground shadow-lift backdrop:bg-foreground/40",
         className,
       )}
     >

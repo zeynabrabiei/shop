@@ -10,7 +10,7 @@ import { formatYear } from "@/lib/formatters";
 const footerLinks = [...mainNavigation, ...utilityNavigation];
 
 function ContactIcon({ id }: { id: SocialLink["id"] }) {
-  const className = "size-[18px]";
+  const className = "size-4.5";
   switch (id) {
     case "email":
       return <Mail className={className} aria-hidden="true" />;
@@ -63,7 +63,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="inline-block transition-all duration-200 hover:translate-x-[-4px] hover:text-white"
+                    className="inline-block transition-all duration-200 hover:-translate-x-1 hover:text-white"
                   >
                     {link.label}
                   </Link>

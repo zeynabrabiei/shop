@@ -17,7 +17,7 @@ export default function Loading() {
               <Skeleton className="h-12 w-32" />
             </div>
           </div>
-          <Skeleton className="aspect-[5/4] w-full rounded-3xl" />
+          <Skeleton className="aspect-5/4 w-full rounded-3xl" />
         </div>
         <ProductGridSkeleton count={4} />
       </div>

@@ -12,8 +12,8 @@ export default function NotFound() {
   return (
     <section className="mx-auto flex max-w-2xl flex-col items-center px-4 py-20 text-center sm:py-28">
       <div className="relative mb-10 select-none" aria-hidden="true">
-        <span className="absolute -start-6 -top-4 size-16 rounded-full bg-accent/30" />
-        <span className="absolute -end-4 bottom-2 size-10 rounded-2xl bg-primary/15" />
+        <span className="absolute -inset-s-6 -top-4 size-16 rounded-full bg-accent/30" />
+        <span className="absolute -inset-e-4 bottom-2 size-10 rounded-2xl bg-primary/15" />
         <p className="relative text-[clamp(6rem,24vw,11rem)] leading-none font-black tracking-tight text-primary">
           ۴۰۴
         </p>
