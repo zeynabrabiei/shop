@@ -2,7 +2,7 @@ import type { ButtonHTMLAttributes } from "react";
 
 import { cn } from "@/lib/utils";
 
-export type ButtonVariant = "primary" | "secondary" | "ghost" | "danger";
+export type ButtonVariant = "primary" | "secondary" | "ghost" | "danger" | "accent";
 export type ButtonSize = "sm" | "md" | "lg";
 
 export interface ButtonStyleOptions {
@@ -18,11 +18,12 @@ const base =
 const variants: Record<ButtonVariant, string> = {
   primary:
     "bg-primary text-primary-foreground shadow-sm hover:bg-primary-hover hover:shadow-card",
+  accent:
+    "bg-accent text-foreground shadow-sm hover:brightness-95 hover:shadow-card",
   secondary:
     "border border-border bg-surface text-foreground hover:border-primary/40 hover:bg-surface-muted",
   ghost: "text-foreground hover:bg-surface-muted",
-  danger:
-    "border border-danger/30 bg-surface text-danger hover:bg-danger/10",
+  danger: "border border-danger/30 bg-surface text-danger hover:bg-danger/10",
 };
 
 const sizes: Record<ButtonSize, string> = {
