@@ -35,3 +35,10 @@ const dateFormatter = new Intl.DateTimeFormat(LOCALE, { dateStyle: "long" });
 export function formatDate(value: Date | string | number): string {
   return dateFormatter.format(new Date(value));
 }
+
+const yearFormatter = new Intl.DateTimeFormat(LOCALE, { year: "numeric" });
+
+/** Current Solar Hijri year in Persian digits, e.g. «۱۴۰۵». */
+export function formatYear(value: Date | string | number = new Date()): string {
+  return yearFormatter.format(new Date(value));
+}

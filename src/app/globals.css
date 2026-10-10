@@ -1,26 +1,156 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #faf8f4;
+  --surface: #ffffff;
+  --surface-muted: #f3efe7;
+  --foreground: #1c1b18;
+  --muted: #6b675e;
+  --border: #e6e0d4;
+  --primary: #0f4c4a;
+  --primary-hover: #0b3a38;
+  --primary-deep: #0a2f2d;
+  --primary-foreground: #ffffff;
+  --accent: #d9922b;
+  --danger: #b42318;
+  --success: #067647;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-deep: var(--primary-deep);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-danger: var(--danger);
+  --color-success: var(--success);
+
+  --font-sans: var(--font-vazirmatn), ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-card: 0 1px 2px rgb(28 27 24 / 0.04), 0 4px 16px rgb(28 27 24 / 0.05);
+  --shadow-lift: 0 2px 4px rgb(28 27 24 / 0.05), 0 12px 32px rgb(28 27 24 / 0.12);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  *,
+  ::after,
+  ::before {
+    border-color: var(--border);
+  }
+
+  html {
+    color-scheme: light;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    line-height: 1.8;
+    text-rendering: optimizeLegibility;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--accent) 35%, transparent);
+  }
+
+  /* Lock page scroll while a modal dialog (mobile menu) is open. */
+  body:has(dialog[open]) {
+    overflow: hidden;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ---------- Skeletons ---------- */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--surface-muted) 25%,
+    #ebe5d8 50%,
+    var(--surface-muted) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+/* ---------- Drawer (slides in from the start side; right in RTL) ---------- */
+.drawer[open] {
+  animation: drawer-in 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes drawer-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+/* ---------- Toast & badge ---------- */
+.toast-in {
+  animation: toast-in 0.25s ease-out;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.badge-pop {
+  animation: badge-pop 0.3s ease-out;
+}
+
+@keyframes badge-pop {
+  0% {
+    transform: scale(0.6);
+  }
+  60% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .skeleton {
+    animation: none;
+  }
 }
